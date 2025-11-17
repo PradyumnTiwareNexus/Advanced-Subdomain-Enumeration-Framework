@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./banner.gif" width="100%" alt="Pradyumn Tiware Nexus Banner">
+</p>
+
 # Advanced Subdomain Enumeration Framework
 
 <p align="center">
