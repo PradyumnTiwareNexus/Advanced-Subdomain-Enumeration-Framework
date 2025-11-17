@@ -1,11 +1,22 @@
-<p align="center">
-  <img src="./Advance Subdomains Enumerate.png" width="100%" alt="Pradyumn Tiware Nexus Banner">
-</p>
-
-
 # Advanced Subdomain Enumeration Framework
 
+<p align="center">
+  <img src="./banner_anim.gif" alt="Pradyumn Tiware Nexus" style="max-width:100%; height:auto;" />
+</p>
+
 > **Advanced Subdomain Enumeration Framework** — Passive-first, modular recon tool with optional API integrations (VirusTotal, Shodan, urlscan.io, SecurityTrails). Use responsibly — only against targets you own or have explicit permission to test.
+
+---
+
+## Features Overview
+
+* Subdomain Enumeration (Passive + Optional Active)
+* DNS Resolution
+* HTTP Probing (optional)
+* API Integrations (VirusTotal, Shodan, urlscan.io, SecurityTrails)
+* JS File Discovery (planned module)
+* Endpoint Extraction (planned)
+* File Discovery (planned)
 
 ---
 
@@ -55,7 +66,100 @@ deactivate
 
 ---
 
-## 2. Command Reference & Examples
+## 2. Command Reference & Examples (All Tools)
+
+### **A) Subdomain Enumeration (main tool)**
+
+```
+python3 allinone_recon_with_keys.py -d example.com -o results.json
+```
+
+### **B) Live Subdomain Probe (HTTP status check)**
+
+```
+python3 allinone_recon_with_keys.py -d example.com --http-probe -o live.json
+```
+
+### **C) Bruteforce Subdomains**
+
+```
+python3 allinone_recon_with_keys.py -d example.com --bruteforce wordlist.txt -o brute.json
+```
+
+### **D) API‑powered Deep Enumeration**
+
+```
+python3 allinone_recon_with_keys.py -d example.com \
+  --vt-key $VT_API_KEY \
+  --shodan-key $SHODAN_API_KEY \
+  --urlscan-key $URLSCAN_API_KEY \
+  --strails-key $STRAILS_API_KEY \
+  -o deep.json
+```
+
+### **E) Full Pipeline (Recommended)**
+
+```
+python3 allinone_recon_with_keys.py -d example.com \
+  --bruteforce wordlist.txt \
+  --http-probe \
+  --vt-key $VT_API_KEY \
+  --shodan-key $SHODAN_API_KEY \
+  -o final.json
+```
+
+---
+
+## Output Structure (What you get)
+
+Tool output comes in structured JSON or CSV.
+
+### **1. candidates**
+
+All discovered subdomains (CRT.SH + APIs + Bruteforce).
+
+### **2. resolved**
+
+Only those which have DNS A‑record → real existing hosts.
+Example:
+
+```
+"resolved": {
+  "api.example.com": "103.21.244.15",
+  "dev.example.com": "192.168.10.2"
+}
+```
+
+### **3. unresolved**
+
+Generated or discovered but no DNS record.
+
+### **4. http** (only if `--http-probe` enabled)
+
+Shows:
+
+* HTTP status
+* Final URL after redirect
+* Live or dead
+
+Example:
+
+```
+"http": {
+  "api.example.com": {
+    "http_ok": true,
+    "status": 200,
+    "url": "https://api.example.com/"
+  }
+}
+```
+
+### **5. Future Modules (coming updates)**
+
+* **JavaScript Extraction** → finds JS files of live subdomains
+* **Secret Scanner** → API keys, tokens, credentials inside JS
+* **File Finder** → sitemap.xml, robots.txt, backup files
+* **Archive Miner** → wayback + archive.org URLs
 
 ```
 usage: allinone_recon_with_keys.py -d DOMAIN [-o OUTPUT] [--bruteforce WORDLIST]
@@ -275,3 +379,4 @@ If you want, I can also:
 * Create a polished `README.md` banner (SVG + animated GIF) and a clean repo `README` front page.
 * Create a `LICENSE` and `CONTRIBUTING.md` file.
 
+Tell me which extras you want and I will add them to the repo.
