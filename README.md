@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./banner_anim.gif" width="100%" alt="Pradyumn Tiware Nexus Banner">
+  <img src="./Advance Subdomains Enumerate.png" width="100%" alt="Pradyumn Tiware Nexus Banner">
 </p>
 
 
