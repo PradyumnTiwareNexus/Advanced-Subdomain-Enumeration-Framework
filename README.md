@@ -274,4 +274,3 @@ If you want, I can also:
 * Create a polished `README.md` banner (SVG + animated GIF) and a clean repo `README` front page.
 * Create a `LICENSE` and `CONTRIBUTING.md` file.
 
-Tell me which extras you want and I will add them to the repo.
