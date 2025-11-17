@@ -1,12 +1,8 @@
 <p align="center">
-  <img src="./banner_anim.gif" width="100%" alt="Pradyumn Tiware Nexus Banner">
+  <img src="./banner.gif" width="100%" alt="Pradyumn Tiware Nexus Banner">
 </p>
 
 # Advanced Subdomain Enumeration Framework
-
-<p align="center">
-  <img src="./banner_anim.gif" alt="Pradyumn Tiware Nexus" style="max-width:100%; height:auto;" />
-</p>
 
 > **Advanced Subdomain Enumeration Framework** — Passive-first, modular recon tool with optional API integrations (VirusTotal, Shodan, urlscan.io, SecurityTrails). Use responsibly — only against targets you own or have explicit permission to test.
 
