@@ -366,9 +366,3 @@ PRs are welcome. If you add support for more APIs, please:
 * Keep the default behavior passive-first
 
 ---
-
-## 9. License
-
-MIT License — include LICENSE file in the repo.
-
----
